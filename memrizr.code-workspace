@@ -1,0 +1,15 @@
+{
+    "folders": [
+        {
+            "path": "./account"
+        },
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "cSpell.words": [
+            "gonic"
+        ]
+    }
+}

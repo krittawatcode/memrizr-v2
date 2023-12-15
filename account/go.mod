@@ -1,4 +1,4 @@
-module github.com/krittawtcode/memrizr-v2
+module github.com/krittawatcode/memrizr-v2
 
 go 1.21.5
 

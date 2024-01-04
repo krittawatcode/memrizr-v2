@@ -26,9 +26,9 @@ func NewHandler(c *Config) {
 	g := c.R.Group(os.Getenv("ACCOUNT_API_URL"))
 
 	g.GET("/me", h.Me)
-	g.POST("/signup", h.Signup)
-	g.POST("/signin", h.Signin)
-	g.POST("/signout", h.Signout)
+	g.POST("/signUp", h.SignUp)
+	g.POST("/signIn", h.SignIn)
+	g.POST("/signOut", h.SignOut)
 	g.POST("/tokens", h.Tokens)
 	g.POST("/image", h.Image)
 	g.DELETE("/image", h.DeleteImage)
@@ -43,24 +43,24 @@ func (h *Handler) Me(c *gin.Context) {
 	})
 }
 
-// Signup handler
-func (h *Handler) Signup(c *gin.Context) {
+// SignUp handler
+func (h *Handler) SignUp(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
-		"hello": "it's signup",
+		"hello": "it's sign up",
 	})
 }
 
-// Signin handler
-func (h *Handler) Signin(c *gin.Context) {
+// SignIn handler
+func (h *Handler) SignIn(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
-		"hello": "it's signin",
+		"hello": "it's sign in",
 	})
 }
 
-// Signout handler
-func (h *Handler) Signout(c *gin.Context) {
+// SignOut handler
+func (h *Handler) SignOut(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
-		"hello": "it's signout",
+		"hello": "it's sign out",
 	})
 }
 

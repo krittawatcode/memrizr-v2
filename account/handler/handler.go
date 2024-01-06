@@ -5,7 +5,7 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
-	"github.com/krittawatcode/memrizr-v2/model"
+	"github.com/krittawatcode/memrizr-v2/account/model"
 )
 
 // Handler struct holds required services for handler to function
@@ -39,21 +39,6 @@ func NewHandler(c *Config) {
 	g.POST("/image", h.Image)
 	g.DELETE("/image", h.DeleteImage)
 	g.PUT("/details", h.Details)
-}
-
-// Me handler calls services for getting
-// a user's details
-// func (h *Handler) Me(c *gin.Context) {
-// 	c.JSON(http.StatusOK, gin.H{
-// 		"hello": "it's me",
-// 	})
-// }
-
-// SignUp handler
-func (h *Handler) SignUp(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{
-		"hello": "it's sign up",
-	})
 }
 
 // SignIn handler

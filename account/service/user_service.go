@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/google/uuid"
-	"github.com/krittawatcode/memrizr-v2/model"
+	"github.com/krittawatcode/memrizr-v2/account/model"
 )
 
 // UserService acts as a struct for injecting an implementation of UserRepository
@@ -32,4 +32,10 @@ func (s *UserService) Get(ctx context.Context, uid uuid.UUID) (*model.User, erro
 	u, err := s.UserRepository.FindByID(ctx, uid)
 
 	return u, err
+}
+
+// SingUp reaches our to a UserRepository to verify the
+// email address is available and signs up the user if this is the case
+func (s *UserService) SignUp(ctx context.Context, u *model.User) error {
+	panic("Method not implemented")
 }

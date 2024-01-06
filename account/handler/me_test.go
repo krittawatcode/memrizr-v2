@@ -9,9 +9,9 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
-	"github.com/krittawatcode/memrizr-v2/model"
-	"github.com/krittawatcode/memrizr-v2/model/apperrors"
-	"github.com/krittawatcode/memrizr-v2/model/mocks"
+	"github.com/krittawatcode/memrizr-v2/account/model"
+	"github.com/krittawatcode/memrizr-v2/account/model/apperrors"
+	"github.com/krittawatcode/memrizr-v2/account/model/mocks"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"

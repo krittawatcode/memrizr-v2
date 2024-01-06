@@ -5,8 +5,8 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/krittawatcode/memrizr-v2/model"
-	"github.com/krittawatcode/memrizr-v2/model/apperrors"
+	"github.com/krittawatcode/memrizr-v2/account/model"
+	"github.com/krittawatcode/memrizr-v2/account/model/apperrors"
 )
 
 // Me handler calls services for getting

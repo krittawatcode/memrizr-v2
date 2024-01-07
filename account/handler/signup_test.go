@@ -86,6 +86,7 @@ func TestSignUp(t *testing.T) {
 		router.ServeHTTP(rr, request)
 
 		assert.Equal(t, 400, rr.Code)
+		assert.Equal(t, `{"error":{"type":"BADREQUEST","message":"Bad request. Reason: Invalid request parameters. See invalidArgs"},"invalidArgs":[{"field":"Email","value":"bob@bob","tag":"email","param":""}]}`, rr.Body.String())
 		mockUserService.AssertNotCalled(t, "SignUp")
 	})
 
@@ -156,6 +157,7 @@ func TestSignUp(t *testing.T) {
 		router.ServeHTTP(rr, request)
 
 		assert.Equal(t, 400, rr.Code)
+		assert.Equal(t, `{"error":{"type":"BADREQUEST","message":"Bad request. Reason: Invalid request parameters. See invalidArgs"},"invalidArgs":[{"field":"Password","value":"super12324jhklafsdjhflkjweyruasdljkfhasdldfjkhasdkljhrleqwwjkrhlqwejrhasdflkjhasdf","tag":"lte","param":"30"}]}`, rr.Body.String())
 		mockUserService.AssertNotCalled(t, "SignUp")
 	})
 
@@ -195,6 +197,7 @@ func TestSignUp(t *testing.T) {
 		router.ServeHTTP(rr, request)
 
 		assert.Equal(t, 409, rr.Code)
+		assert.Equal(t, `{"error":{"type":"CONFLICT","message":"resource: User Already Exists with value: bob@bob.com already exists"}}`, rr.Body.String())
 		mockUserService.AssertExpectations(t)
 	})
 }

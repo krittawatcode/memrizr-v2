@@ -49,8 +49,8 @@ func TestSignUp(t *testing.T) {
 		request.Header.Set("Content-Type", "application/json")
 
 		router.ServeHTTP(rr, request)
-
 		assert.Equal(t, 400, rr.Code)
+		assert.Equal(t, `{"error":{"type":"BADREQUEST","message":"Bad request. Reason: Invalid request parameters. See invalidArgs"},"invalidArgs":[{"field":"Email","value":"","tag":"required","param":""},{"field":"Password","value":"","tag":"required","param":""}]}`, rr.Body.String())
 		mockUserService.AssertNotCalled(t, "SignUp")
 	})
 
@@ -121,6 +121,7 @@ func TestSignUp(t *testing.T) {
 		router.ServeHTTP(rr, request)
 
 		assert.Equal(t, 400, rr.Code)
+		assert.Equal(t, `{"error":{"type":"BADREQUEST","message":"Bad request. Reason: Invalid request parameters. See invalidArgs"},"invalidArgs":[{"field":"Password","value":"supe","tag":"gte","param":"6"}]}`, rr.Body.String())
 		mockUserService.AssertNotCalled(t, "SignUp")
 	})
 	t.Run("Password too long", func(t *testing.T) {
